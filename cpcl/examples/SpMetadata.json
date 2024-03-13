@@ -1,0 +1,59 @@
+{
+  "entityid": "https:\/\/alpe2.incubator.geant.org\/shibboleth",
+  "contacts": [],
+  "metadata-set": "saml20-sp-remote",
+  "AssertionConsumerService": [
+    {
+      "Binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST",
+      "Location": "https:\/\/alpe2.incubator.geant.org\/Shibboleth.sso\/SAML2\/POST",
+      "index": 1
+    },
+    {
+      "Binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign",
+      "Location": "https:\/\/alpe2.incubator.geant.org\/Shibboleth.sso\/SAML2\/POST-SimpleSign",
+      "index": 2
+    },
+    {
+      "Binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact",
+      "Location": "https:\/\/alpe2.incubator.geant.org\/Shibboleth.sso\/SAML2\/Artifact",
+      "index": 3
+    },
+    {
+      "Binding": "urn:oasis:names:tc:SAML:2.0:bindings:PAOS",
+      "Location": "https:\/\/alpe2.incubator.geant.org\/Shibboleth.sso\/SAML2\/ECP",
+      "index": 4
+    }
+  ],
+  "SingleLogoutService": [
+    {
+      "Binding": "urn:oasis:names:tc:SAML:2.0:bindings:SOAP",
+      "Location": "https:\/\/alpe2.incubator.geant.org\/Shibboleth.sso\/SLO\/SOAP"
+    },
+    {
+      "Binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect",
+      "Location": "https:\/\/alpe2.incubator.geant.org\/Shibboleth.sso\/SLO\/Redirect"
+    },
+    {
+      "Binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST",
+      "Location": "https:\/\/alpe2.incubator.geant.org\/Shibboleth.sso\/SLO\/POST"
+    },
+    {
+      "Binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact",
+      "Location": "https:\/\/alpe2.incubator.geant.org\/Shibboleth.sso\/SLO\/Artifact"
+    }
+  ],
+  "keys": [
+    {
+      "encryption": false,
+      "signing": true,
+      "type": "X509Certificate",
+      "X509Certificate": "MIIFKTCCAxGgAwIBAgIUKzp7JScPlAHQCY1Jfj5Rgxx1vMcwDQYJKoZIhvcNAQELBQAwJDEiMCAGA1UEAwwZYWxwZTIuaW5jdWJhdG9yLmdlYW50Lm9yZzAeFw0yMzExMTcxODQ3NTZaFw0zMzExMTQxODQ3NTZaMCQxIjAgBgNVBAMMGWFscGUyLmluY3ViYXRvci5nZWFudC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDNiqr7EH8vVoc264tSl\/DytlCcdJzlFRaxbqAyPTa1GLoNxGNhzapmaci08ucb4dlI58yXNnrvwll99Qv6nf9JGsqUwYdYiv6EsxDyPW7xuTUiYXukIEn+2q8GGbLrOyrDaJPKEvKHna26ZSrV4EG0iErnHolWI9Pxa1ZNQa31\/HyXwab8J7d6tQURF489spM7vpDgVPcb8bR8TlVjhr96\/u0kz0Mvhhcd3mjCAzlK0awwh0JKKaJhh4RMS2pgPycC\/8\/1H1hBtGgVfPbrm3i5YxCljP00YZQCQbHgt5UnJhXO+yLd90Qu5M+B41TR6cxTEcV9fD00z9se+DGgGavFN5gJULyqJw2CVUzxNDio3KeNhPfKCsggteFr4TJm4xe\/r3YvgRHis0Oe9ixV6v2HmHBtXPfTf9zF8030n8s0qw9q\/ihlg6Yj083jiK7YnRScfRYmw1zkMB\/IJ7dVCTHRgT+nFxZKKwmTd4teghGSDNN12n\/qvR6LWB2FFRRSS3wmpub0RZ5e+mUsADZ\/Lv60cZ\/j7nFEQFLDclYdhzQcBkArQ\/8X\/PMWebUIZr8x3dRscGjsjq5YHhKMWD+TZRNiasyseJjyAsXlRqQQmu0XEVYyxyd8AzPay+QSmlwPXfC7GeuSFrnZK5ptiJuaapykj33\/9AsdRFYZlxwaQ4R0NwIDAQABo1MwUTAdBgNVHQ4EFgQUVFCYg\/Dr275OKENb45o\/qhLpc34wHwYDVR0jBBgwFoAUVFCYg\/Dr275OKENb45o\/qhLpc34wDwYDVR0TAQH\/BAUwAwEB\/zANBgkqhkiG9w0BAQsFAAOCAgEAkg2W27UmyDg\/rGjaddigRDhpm2bN8YCjh8o7rRM9XYrldHWnrE5ISjkuVuW98gW1ihGsLZMyttvs15gs3ILqp\/9PVPyKxPt+4\/wtuo4Wmc7ZlVSCahgtY6iYsj3u9dRFCTrQf0qlXGqfy+4hZyLH4URUG5IOQp7e6i+gEtweguW9d817rb61hcrbBFqRezTx\/yILmmPDGhyj0vTH+xvcrjFZsB5QslWmfG8KiR4f9lsRybLMSXlyFWpjwLp1nc9BGB+gJQI525yP6LpO0lvCH8Kk5h2iIao3OGRfQyya4nnFEZxa6h4MAnKrJX4sQq+WZDapkU+KppJ7PMTYjsh6rMHIo7P1r5wvfIkt0eBWuxbDXZXf8Yo3yxkUYuTNN82wV2\/xxVjectvGBx9xVtF52zfJvOgG02qnYtTzQvZGk7cVh62HcU7JcDdSUrNFNUkEcDlhCFO1\/+TY6ZZIq6TlCYoVShOCzjhdFRC4dyKNmuO6xMhfCQIOU42ktzdsks47JXthNT85eT+ueVeU\/RBYFotKDtiPshjY5sqPK0EGpSSbVvo81OxNw4m5hcyxVMaDVtendHpgNCG0WBl35PLXZjciCrCvHFAcSzYmK56Q+mSCmYlMLTUTPMysQlX3j8dpVlMdZuFVlDRc3KCxi50hsXOy6QCV8hn1Hlh238EDLWI="
+    },
+    {
+      "encryption": true,
+      "signing": false,
+      "type": "X509Certificate",
+      "X509Certificate": "MIIFKTCCAxGgAwIBAgIUKzp7JScPlAHQCY1Jfj5Rgxx1vMcwDQYJKoZIhvcNAQELBQAwJDEiMCAGA1UEAwwZYWxwZTIuaW5jdWJhdG9yLmdlYW50Lm9yZzAeFw0yMzExMTcxODQ3NTZaFw0zMzExMTQxODQ3NTZaMCQxIjAgBgNVBAMMGWFscGUyLmluY3ViYXRvci5nZWFudC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDNiqr7EH8vVoc264tSl\/DytlCcdJzlFRaxbqAyPTa1GLoNxGNhzapmaci08ucb4dlI58yXNnrvwll99Qv6nf9JGsqUwYdYiv6EsxDyPW7xuTUiYXukIEn+2q8GGbLrOyrDaJPKEvKHna26ZSrV4EG0iErnHolWI9Pxa1ZNQa31\/HyXwab8J7d6tQURF489spM7vpDgVPcb8bR8TlVjhr96\/u0kz0Mvhhcd3mjCAzlK0awwh0JKKaJhh4RMS2pgPycC\/8\/1H1hBtGgVfPbrm3i5YxCljP00YZQCQbHgt5UnJhXO+yLd90Qu5M+B41TR6cxTEcV9fD00z9se+DGgGavFN5gJULyqJw2CVUzxNDio3KeNhPfKCsggteFr4TJm4xe\/r3YvgRHis0Oe9ixV6v2HmHBtXPfTf9zF8030n8s0qw9q\/ihlg6Yj083jiK7YnRScfRYmw1zkMB\/IJ7dVCTHRgT+nFxZKKwmTd4teghGSDNN12n\/qvR6LWB2FFRRSS3wmpub0RZ5e+mUsADZ\/Lv60cZ\/j7nFEQFLDclYdhzQcBkArQ\/8X\/PMWebUIZr8x3dRscGjsjq5YHhKMWD+TZRNiasyseJjyAsXlRqQQmu0XEVYyxyd8AzPay+QSmlwPXfC7GeuSFrnZK5ptiJuaapykj33\/9AsdRFYZlxwaQ4R0NwIDAQABo1MwUTAdBgNVHQ4EFgQUVFCYg\/Dr275OKENb45o\/qhLpc34wHwYDVR0jBBgwFoAUVFCYg\/Dr275OKENb45o\/qhLpc34wDwYDVR0TAQH\/BAUwAwEB\/zANBgkqhkiG9w0BAQsFAAOCAgEAkg2W27UmyDg\/rGjaddigRDhpm2bN8YCjh8o7rRM9XYrldHWnrE5ISjkuVuW98gW1ihGsLZMyttvs15gs3ILqp\/9PVPyKxPt+4\/wtuo4Wmc7ZlVSCahgtY6iYsj3u9dRFCTrQf0qlXGqfy+4hZyLH4URUG5IOQp7e6i+gEtweguW9d817rb61hcrbBFqRezTx\/yILmmPDGhyj0vTH+xvcrjFZsB5QslWmfG8KiR4f9lsRybLMSXlyFWpjwLp1nc9BGB+gJQI525yP6LpO0lvCH8Kk5h2iIao3OGRfQyya4nnFEZxa6h4MAnKrJX4sQq+WZDapkU+KppJ7PMTYjsh6rMHIo7P1r5wvfIkt0eBWuxbDXZXf8Yo3yxkUYuTNN82wV2\/xxVjectvGBx9xVtF52zfJvOgG02qnYtTzQvZGk7cVh62HcU7JcDdSUrNFNUkEcDlhCFO1\/+TY6ZZIq6TlCYoVShOCzjhdFRC4dyKNmuO6xMhfCQIOU42ktzdsks47JXthNT85eT+ueVeU\/RBYFotKDtiPshjY5sqPK0EGpSSbVvo81OxNw4m5hcyxVMaDVtendHpgNCG0WBl35PLXZjciCrCvHFAcSzYmK56Q+mSCmYlMLTUTPMysQlX3j8dpVlMdZuFVlDRc3KCxi50hsXOy6QCV8hn1Hlh238EDLWI="
+    }
+  ]
+}

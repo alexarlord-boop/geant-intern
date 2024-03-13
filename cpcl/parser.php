@@ -1,33 +1,107 @@
 <?php
 
 require_once '../vendor/autoload.php';
+require_once 'IOUtils.php';
+require_once 'EntityDTO.php';
 
 use Symfony\Component\Yaml\Yaml;
 
+
+$io = new IOUtils();
+
 // Read the YAML file
-$fileContent = file_get_contents('proxy.yaml');
+//$fileContent = $io->readFile('proxy.yaml');
+//
 
-// Parse the YAML content
-$data = Yaml::parse($fileContent);
+//foreach ($entityTypes as $entityType => [$direction, $entityProtocol]) {
+//    $entityData = $data[$direction][$entityType] ?? null;
+//    if ($entityData) {
+//        $entity = EntityFactory::createEntity($entityType, $entityData);
+//        print_r($entity);
+//        // Handle entity processing based on $entityCategory (saml or oidc)
+//        if ($entity->getProtocol() === EntityProtocol::SAML) {
+//            $phpMetadataPath = $directionFilepath[$direction];
+//
+//            // Assuming $srcFilename is meant to be defined here or elsewhere
+//            $srcFilename = "some_value";  // Replace with the actual value or logic
+//
+//            $xmlData = getMetadataFromUrl($entity->getResourceLocation());
+//            storeXmlMetadata($xmlData, $srcFilename);
+//
+//            $phpMetadata = convertXmlToPhp($srcFilename, $phpMetadataPath);
+//            storePhpMetadata($phpMetadata);
+//
+//            $jsonMetadata = convertPhpToJson($phpMetadataPath);
+//
+//            // TODO: Perform DB operations with $jsonMetadata
+//        }
+//
+//        if ($entity->getProtocol() === EntityProtocol::OIDC) {
+//            // TODO:- DB crud
+//        }
+//
+//    }
+//}
+//
 
-// Access the parsed data
-$samlIdpConfig = $data['in']['saml_idp'];
-$samlOPConfig = $data['in']['oidc_op'];
-$samlSpConfig = $data['out']['saml_sp'];
-$oidcRpConfig = $data['out']['oidc_rp'];
+// TODO:- think of rules module
+//$rules = $data['rules'] ?? null;
 
-// Access the rules
-$rules = $data['rules'];
 
-// Display some information
-echo "SAML IDP Configuration:\n";
-print_r($samlIdpConfig);
+class Parser
+{
+    private array $entityTypes = [
+        'saml_idp' => ['in', 'saml'],
+        'saml_idps' => ['in', 'saml'],
+        'saml_sp' => ['out', 'saml'],
+        'saml_sps' => ['out', 'saml'],
+        'oidc_op' => ['in', 'oidc'],
+        'oidc_rp' => ['out', 'oidc'],
+    ];
 
-echo "\nSAML SP Configuration:\n";
-print_r($samlSpConfig);
+    private array $directionFilepath = [
+        'in' => 'saml2O-idp-remote.php',
+        'out' => 'saml2O-sp-remote.php',
+    ];
 
-echo "\nOIDC RP Configuration:\n";
-print_r($oidcRpConfig);
+    private array $entities;
 
-echo "\nRules:\n";
-print_r($rules);
+    public function parseYamlFile($fileContent): mixed
+    {
+        // Parse the YAML content
+        return Yaml::parse($fileContent);
+    }
+
+    private function setEntities($entities)
+    {
+        $this->entities = $entities;
+    }
+
+    public function getEntities(): array
+    {
+        return $this->entities;
+    }
+
+    public function extractEntities($yamlData): void
+    {
+        $entitiesTmp = array();
+        foreach ($this->entityTypes as $entityType => [$direction, $entityProtocol]) {
+            $entityData = $yamlData[$direction][$entityType] ?? null;
+            if ($entityData) {
+                $entity = EntityFactory::createEntity($entityType, $entityData);
+                $entitiesTmp[] = $entity;
+            }
+        }
+
+        $this->setEntities($entitiesTmp);
+    }
+
+
+
+    public function extractRules()
+    {
+        //TODO:-
+    }
+
+
+}

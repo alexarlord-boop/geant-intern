@@ -1,0 +1,28 @@
+---
+in:
+  saml_idps:
+    name: "SAML IDPs"
+    description: "All IDPs from the Federations"
+    metadata_url: "https://metadata.federation.example/idps-metadata.xml"
+
+  oidc_op:
+    name: "OIDC OP"
+    description: "Connect to the OIDC OP"
+    discovery_url: "https://oidc.op.example/.well-known/openid-configuration"
+
+rules:
+  - pass:
+      in: "saml-attribute-1"
+      out: "oidc-claim"
+
+  - pass:
+      in: "saml-attribute-1"
+      out: "saml-attribute-1"
+
+
+out:
+  saml_sps:
+    name: "SAML SPs"
+    description: "All SPs from the Collaboration"
+    metadata_url: "https://collaboration.example.org/sps.xml"
+

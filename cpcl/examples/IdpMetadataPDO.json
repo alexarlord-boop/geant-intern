@@ -1,0 +1,43 @@
+{
+  "entityid": "https:\/\/alpe1.incubator.geant.org\/saml-idp",
+  "contacts": [
+    {
+      "contactType": "technical",
+      "givenName": "Alex Petrunin",
+      "emailAddress": [
+        "petrunina602@gmail.com"
+      ]
+    }
+  ],
+  "metadata-set": "saml20-idp-remote",
+  "SingleSignOnService": [
+    {
+      "Binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect",
+      "Location": "https:\/\/alpe1.incubator.geant.org\/simplesaml\/module.php\/saml\/idp\/singleSignOnService"
+    }
+  ],
+  "SingleLogoutService": [
+    {
+      "Binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect",
+      "Location": "https:\/\/alpe1.incubator.geant.org\/simplesaml\/module.php\/saml\/idp\/singleLogout"
+    }
+  ],
+  "ArtifactResolutionService": [],
+  "NameIDFormats": [
+    "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+  ],
+  "keys": [
+    {
+      "encryption": false,
+      "signing": true,
+      "type": "X509Certificate",
+      "X509Certificate": "MIIEkzCCAvugAwIBAgIUKgH\/ESdeCoNpT6S9vm\/yFXzAyVcwDQYJKoZIhvcNAQELBQAwWTELMAkGA1UEBhMCQ1kxIzAhBgNVBAMMGmFscGUxLmluY3ViYXRvci5nZWFudC5vcmcgMSUwIwYJKoZIhvcNAQkBFhZwZXRydW5pbmE2MDJAZ21haWwuY29tMB4XDTIzMTExNTE2NTM0NVoXDTMzMTExNDE2NTM0NVowWTELMAkGA1UEBhMCQ1kxIzAhBgNVBAMMGmFscGUxLmluY3ViYXRvci5nZWFudC5vcmcgMSUwIwYJKoZIhvcNAQkBFhZwZXRydW5pbmE2MDJAZ21haWwuY29tMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEA5KOW\/5n6AFtc6BxKX2GMJH+Uh2NdulTfonyScS7PBsED7PfbaxfH5ptGk\/zRywbM6XLgGBZteP0H0F3j+tDEi7zSB1m8PJSbepyzEUTzB+YqgjjL6Vh4hNPrYQ4DyN8ZtqVkB6+ibKsiy7D9KGFUK057XBgGuk4oH1MQmdns8r0ZAbOib042zGd5FyaGLZ3OypJ3crLEcLnRRWYBpwh+WbaR40DtOB6jojoKKs2s6CtXNhSOg7X6VSzcjn398bvB6Hqr5b73Z7z8wJt5cprL7uFnWMqygY0f5yny7XG8MgFvUbWEPR4EMC6Nx6hO3nJ55Gobtr9xSahOAWtlDs+6SYs2hJcEr\/0fjANP8wyNEMHIDHf8hThXEaCLepZjhRPLc6CG75WHTmJiR1eWSJQ6WBLCzlJcBPlSywNKpNUd3jtoPXNDLW7zwphahF0aMbtdz1r+uc\/JU+7Urn5hRoe8BPz9aXURgNyJWo7MQmBZy9\/HRttzJZbQWa9Up2Hxlx3xAgMBAAGjUzBRMB0GA1UdDgQWBBQkF0eyO\/YAfRh7xpy5P4Zj4GBD3DAfBgNVHSMEGDAWgBQkF0eyO\/YAfRh7xpy5P4Zj4GBD3DAPBgNVHRMBAf8EBTADAQH\/MA0GCSqGSIb3DQEBCwUAA4IBgQBEMOOIjVMs7i3qewGW0RuGhFKGVK+P5jJupbgk0\/TkqW5icuTTRtLaPdCoYlvuKIHvDBM4+z5li\/M6nO2F0hb5SLAnwk5f8+sydD\/Y23Ymn+7nVPQEoIjYOwJ7wEMLYNXlOgtnEq5ybvBaQ+++guhidbT+ZKv4xvCsmR1K6KlbehKnMjIWuB0Ounuq\/kgr3QH8d9Ef9uTg2YaD6zVCZnV6gO7k\/MqTXAfLMTji\/Ih6lj1NoR6P\/E9oAg6o2B3o5UEh5PXcAHgCrUFgHDN7xkash9jJEEZySexCyu+d8z\/9wQB\/UPCswazLuiedPpfem2IObqKCcWqv1GCrLfd0hMkpJzL0nQgP7xkeRJsVD790aA2y+f1O0tNvKuP5ksachUTEnp8JR5ZS+Ak\/TaoDWMKxu0i4IU+CmIcZpn3v646Qqmn2sUagw4cNM7uWEzVhK5FGWMilf36RbDpShhRxszkOwOD0jzNWMafQymcSHeSkcIS3B\/Z94cfsztskSJ2mP1Y="
+    },
+    {
+      "encryption": true,
+      "signing": false,
+      "type": "X509Certificate",
+      "X509Certificate": "MIIEkzCCAvugAwIBAgIUKgH\/ESdeCoNpT6S9vm\/yFXzAyVcwDQYJKoZIhvcNAQELBQAwWTELMAkGA1UEBhMCQ1kxIzAhBgNVBAMMGmFscGUxLmluY3ViYXRvci5nZWFudC5vcmcgMSUwIwYJKoZIhvcNAQkBFhZwZXRydW5pbmE2MDJAZ21haWwuY29tMB4XDTIzMTExNTE2NTM0NVoXDTMzMTExNDE2NTM0NVowWTELMAkGA1UEBhMCQ1kxIzAhBgNVBAMMGmFscGUxLmluY3ViYXRvci5nZWFudC5vcmcgMSUwIwYJKoZIhvcNAQkBFhZwZXRydW5pbmE2MDJAZ21haWwuY29tMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEA5KOW\/5n6AFtc6BxKX2GMJH+Uh2NdulTfonyScS7PBsED7PfbaxfH5ptGk\/zRywbM6XLgGBZteP0H0F3j+tDEi7zSB1m8PJSbepyzEUTzB+YqgjjL6Vh4hNPrYQ4DyN8ZtqVkB6+ibKsiy7D9KGFUK057XBgGuk4oH1MQmdns8r0ZAbOib042zGd5FyaGLZ3OypJ3crLEcLnRRWYBpwh+WbaR40DtOB6jojoKKs2s6CtXNhSOg7X6VSzcjn398bvB6Hqr5b73Z7z8wJt5cprL7uFnWMqygY0f5yny7XG8MgFvUbWEPR4EMC6Nx6hO3nJ55Gobtr9xSahOAWtlDs+6SYs2hJcEr\/0fjANP8wyNEMHIDHf8hThXEaCLepZjhRPLc6CG75WHTmJiR1eWSJQ6WBLCzlJcBPlSywNKpNUd3jtoPXNDLW7zwphahF0aMbtdz1r+uc\/JU+7Urn5hRoe8BPz9aXURgNyJWo7MQmBZy9\/HRttzJZbQWa9Up2Hxlx3xAgMBAAGjUzBRMB0GA1UdDgQWBBQkF0eyO\/YAfRh7xpy5P4Zj4GBD3DAfBgNVHSMEGDAWgBQkF0eyO\/YAfRh7xpy5P4Zj4GBD3DAPBgNVHRMBAf8EBTADAQH\/MA0GCSqGSIb3DQEBCwUAA4IBgQBEMOOIjVMs7i3qewGW0RuGhFKGVK+P5jJupbgk0\/TkqW5icuTTRtLaPdCoYlvuKIHvDBM4+z5li\/M6nO2F0hb5SLAnwk5f8+sydD\/Y23Ymn+7nVPQEoIjYOwJ7wEMLYNXlOgtnEq5ybvBaQ+++guhidbT+ZKv4xvCsmR1K6KlbehKnMjIWuB0Ounuq\/kgr3QH8d9Ef9uTg2YaD6zVCZnV6gO7k\/MqTXAfLMTji\/Ih6lj1NoR6P\/E9oAg6o2B3o5UEh5PXcAHgCrUFgHDN7xkash9jJEEZySexCyu+d8z\/9wQB\/UPCswazLuiedPpfem2IObqKCcWqv1GCrLfd0hMkpJzL0nQgP7xkeRJsVD790aA2y+f1O0tNvKuP5ksachUTEnp8JR5ZS+Ak\/TaoDWMKxu0i4IU+CmIcZpn3v646Qqmn2sUagw4cNM7uWEzVhK5FGWMilf36RbDpShhRxszkOwOD0jzNWMafQymcSHeSkcIS3B\/Z94cfsztskSJ2mP1Y="
+    }
+  ]
+}

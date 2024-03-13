@@ -1,5 +1,12 @@
 {
+
     "require": {
-        "symfony/yaml": "^7.0"
+        "symfony/yaml": "^7.0",
+      "ext-pdo": "*",
+        "doctrine/orm": "^3.0",
+      "ext-simplexml": "*",
+      "ext-json": "*",
+      "ext-xml": "*",
+      "ext-libxml": "*"
     }
 }
