@@ -77,6 +77,13 @@ RUN cd /var/simplesamlphp/ && \
     /usr/local/bin/composer require simplesamlphp/simplesamlphp-module-oidc:^5.1 && \
     cp modules/oidc/config-templates/module_oidc.php config/
 
+# Install Metarefresh module
+RUN cd /var/simplesamlphp/ && \
+    /usr/local/bin/composer config --no-plugins allow-plugins.simplesamlphp/composer-module-installer true && \
+    /usr/local/bin/composer require simplesamlphp/simplesamlphp-module-metarefresh && \
+    cp modules/cron/config/module_cron.php.dist config/module_cron.php && \
+    cp modules/metarefresh/config-templates/module_metarefresh.php config/module_metarefresh.php
+
 # Clone Laravel app from Git (specifically from the dev branch)
 RUN git clone -b dev https://github.com/alexarlord-boop/cpcl-app.git /var/www/laravel-app
 
