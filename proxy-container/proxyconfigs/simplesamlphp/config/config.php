@@ -37,4 +37,3 @@ $config = array (
         array('type' => 'flatfile', 'directory' => 'metadata/shared/saml_sps'),
     )
 );
-

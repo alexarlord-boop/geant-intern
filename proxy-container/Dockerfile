@@ -26,8 +26,16 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+ARG COMPOSER_ALLOW_SUPERUSER=1
+
 # Set the working directory
 WORKDIR /
+
+# Add php settings
+COPY php-ini-overwrite.ini /etc/php/8.2/apache2/conf.d/php-ini-overwrite.ini
 
 # Install SimpleSAMLphp, setup dirs
 RUN wget "https://github.com/simplesamlphp/simplesamlphp/releases/download/v${SSP_VERSION}/simplesamlphp-${SSP_VERSION}-full.tar.gz" \
@@ -66,10 +74,6 @@ RUN service mariadb start \
     && mysql -u root -e "source /docker-entrypoint-initdb.d/init-db.sql" \
     && service mariadb stop
 
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-ARG COMPOSER_ALLOW_SUPERUSER=1
 
 # Install OIDC OP module
 RUN cd /var/simplesamlphp/ && \
@@ -80,9 +84,7 @@ RUN cd /var/simplesamlphp/ && \
 # Install Metarefresh module
 RUN cd /var/simplesamlphp/ && \
     /usr/local/bin/composer config --no-plugins allow-plugins.simplesamlphp/composer-module-installer true && \
-    /usr/local/bin/composer require simplesamlphp/simplesamlphp-module-metarefresh && \
-    cp modules/cron/config/module_cron.php.dist config/module_cron.php && \
-    cp modules/metarefresh/config-templates/module_metarefresh.php config/module_metarefresh.php
+    /usr/local/bin/composer require simplesamlphp/simplesamlphp-module-metarefresh
 
 # Clone Laravel app from Git (specifically from the dev branch)
 RUN git clone -b dev https://github.com/alexarlord-boop/cpcl-app.git /var/www/laravel-app
@@ -94,6 +96,7 @@ RUN cd /var/www/laravel-app && \
 
 # Grant permissions
 RUN chown -R www-data:www-data /var/www/laravel-app && \
+    chmod 775 /var/www/laravel-app/public/config/module_metarefresh.php && \
     chmod -R 775 /var/www/laravel-app/storage && \
     chmod -R 775 /var/www/laravel-app/bootstrap/cache
 
