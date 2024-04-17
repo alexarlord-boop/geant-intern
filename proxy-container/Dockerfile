@@ -16,6 +16,8 @@ RUN apt-get update \
         php${PHP_VERSION}-pdo-sqlite \
         php${PHP_VERSION}-mbstring \
         php${PHP_VERSION}-ldap \
+        php${PHP_VERSION}-http \
+        php${PHP_VERSION}-raphf \
         curl \
         git \
         unzip \

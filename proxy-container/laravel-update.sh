@@ -24,9 +24,23 @@ php artisan config:clear || { echo "Error: Config clear failed"; exit 1; }
 php artisan route:clear || { echo "Error: Route clear failed"; exit 1; }
 php artisan view:clear || { echo "Error: View clear failed"; exit 1; }
 
+# Check if the lock file is outdated
+if [[ "$(composer check-platform-reqs --no-ansi --no-interaction)" == *"Warning: The lock file is not up to date with the latest changes"* ]]; then
+    echo "The Composer lock file is not up to date. Updating dependencies..."
+    composer update || { echo "Error: Composer update failed"; exit 1; }
+fi
+
 # Optimize the class loader
 echo "Optimizing the class loader..."
 composer dump-autoload || { echo "Error: Composer dump-autoload failed"; exit 1; }
+
+
+chown www-data ./public/config/module_metarefresh.php
+
+# Run database migrations (fresh)
+echo "Running database migrations (fresh)..."
+php artisan migrate:fresh --seed || { echo "Error: Database migration failed"; exit 1; }
+
 
 # Additional update steps if needed
 

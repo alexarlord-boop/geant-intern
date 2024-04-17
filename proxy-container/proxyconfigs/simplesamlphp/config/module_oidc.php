@@ -85,14 +85,14 @@ $config = [
     ],
 
     // Optional custom scopes. You can create as many scopes as you want and assign claims to them.
-    'scopes' => [
-        'private' => [ // The key represents the scope name.
-            'description' => 'private scope',
-            'claim_name_prefix' => '', // Prefix to apply for all claim names from this scope
-            'are_multiple_claim_values_allowed' => false, // Are claims for this scope allowed to have multiple values
-            'claims' => ['edu_affiliation'] // Claims from the translation table which this scope will contain
-        ],
-    ],
+//    'scopes' => [
+//        'private' => [ // The key represents the scope name.
+//            'description' => 'private scope',
+//            'claim_name_prefix' => '', // Prefix to apply for all claim names from this scope
+//            'are_multiple_claim_values_allowed' => false, // Are claims for this scope allowed to have multiple values
+//            'claims' => ['edu_affiliation'] // Claims from the translation table which this scope will contain
+//        ],
+//    ],
 
     'translate' => [
 
