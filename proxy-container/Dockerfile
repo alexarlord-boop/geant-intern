@@ -58,8 +58,7 @@ RUN a2dismod mpm_event && \
     a2enmod mpm_prefork
 
 # Copy Apache sites-enabled files into the container
-COPY /proxyconfigs/apache/000-default-le-ssl.conf /etc/apache2/sites-enabled/
-
+COPY ./proxyconfigs/apache/000-default-le-ssl.conf /etc/apache2/sites-enabled/
 # Expose ports 80 and 443 for Apache
 EXPOSE 80 443 3306 8000
 
@@ -91,14 +90,21 @@ RUN cd /var/simplesamlphp/ && \
 # Clone Laravel app from Git (specifically from the dev branch)
 RUN git clone -b dev https://github.com/alexarlord-boop/cpcl-app.git /var/www/laravel-app
 
-# Install Laravel dependencies, and generate the application key
-RUN cd /var/www/laravel-app && \
-    composer install --no-dev --optimize-autoloader && \
+# Set working directory
+WORKDIR /var/www/laravel-app
+
+# Install Laravel Debugbar package for development
+RUN /usr/local/bin/composer require barryvdh/laravel-debugbar --dev
+
+# Install Laravel dependencies excluding development dependencies, and generate the application key
+RUN /usr/local/bin/composer install --optimize-autoloader && \
     php artisan key:generate
+
+# Set working directory
+WORKDIR /
 
 # Grant permissions
 RUN chown -R www-data:www-data /var/www/laravel-app && \
-    chmod 775 /var/www/laravel-app/public/config/module_metarefresh.php && \
     chmod -R 775 /var/www/laravel-app/storage && \
     chmod -R 775 /var/www/laravel-app/bootstrap/cache
 
@@ -106,8 +112,6 @@ RUN chown -R www-data:www-data /var/www/laravel-app && \
 COPY laravel-update.sh /
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN chmod +x laravel-update.sh
-COPY proxyconfigs/simplesamlphp/bin/initMDSPdo.php /var/simplesamlphp/bin/
-COPY proxyconfigs/simplesamlphp/bin/importPdoMetadata.php /var/simplesamlphp/bin/
 
 # Start supervisord
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

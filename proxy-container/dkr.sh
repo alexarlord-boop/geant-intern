@@ -2,7 +2,7 @@
 docker rm -f proxy
 docker rmi -f proxy
 # Remove unused Docker objects including build cache
-docker system prune -f --all --volumes
+# docker system prune -f --all --volumes
 
 docker build -t proxy .
 
