@@ -2,7 +2,7 @@ FROM debian:bookworm-slim
 
 # Define version
 ARG PHP_VERSION=8.2
-ARG SSP_VERSION=2.1.3
+ARG SSP_VERSION=2.2.1
 
 # Install necessary packages
 RUN apt-get update \
