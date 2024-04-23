@@ -17,6 +17,9 @@ git reset --hard origin/dev || { echo "Error: Git reset failed"; exit 1; }
 echo "Installing or updating Laravel dependencies..."
 composer install --optimize-autoloader || { echo "Error: Composer install failed"; exit 1; }
 
+# Publish log-viewer assets
+php artisan vendor:publish --tag=log-viewer-assets --force || { echo "Error: Assets publishing failed"; exit 1; }
+
 # Clear Laravel caches
 echo "Clearing Laravel caches..."
 php artisan cache:clear || { echo "Error: Cache clear failed"; exit 1; }
@@ -34,12 +37,9 @@ fi
 echo "Optimizing the class loader..."
 composer dump-autoload || { echo "Error: Composer dump-autoload failed"; exit 1; }
 
-
+# Change access to GUI app files
 chown www-data ./public/config/module_metarefresh.php
 
-# Run database migrations (fresh)
-echo "Running database migrations (fresh)..."
-php artisan migrate:fresh --seed || { echo "Error: Database migration failed"; exit 1; }
 
 
 # Additional update steps if needed
@@ -49,3 +49,5 @@ echo "Update successful."
 
 # Exit with success status
 exit 0
+
+
