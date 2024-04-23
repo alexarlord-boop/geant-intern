@@ -41,7 +41,10 @@ try {
 }
 echo PHP_EOL;
 
-$stmt = $conn->query('SELECT * FROM rulesets');
+$sql = "SELECT * FROM rulesets WHERE isActive = 1";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+
 if ($stmt === false) {
     die("Error executing query: " . $conn->errorInfo()[2]);
 }
@@ -54,8 +57,8 @@ $rulesets = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $translate = [];
 foreach ($rulesets as $ruleset) {
 //    echo print_r($ruleset);
-    $key = $ruleset['outAttr']; // Assuming 'outAttr' is the column containing the OIDC claim
-    $value = $ruleset['inAttr']; // Assuming 'inAttr' is the column containing the SAML attribute
+    $key = $ruleset['out']; // Assuming 'out' is the column containing the OIDC claim
+    $value = $ruleset['in']; // Assuming 'in' is the column containing the SAML attribute
     $translate[$key] = [$value];
 }
 echo print_r($translate, true);
