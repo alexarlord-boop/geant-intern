@@ -108,6 +108,9 @@ RUN chown -R www-data:www-data /var/www/laravel-app && \
     chmod -R 775 /var/www/laravel-app/storage && \
     chmod -R 775 /var/www/laravel-app/bootstrap/cache
 
+# Enable laravel repo updates
+RUN git config --global --add safe.directory /var/www/laravel-app
+
 # Transfer scripts
 COPY laravel-update.sh /
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
