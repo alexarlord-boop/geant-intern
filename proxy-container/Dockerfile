@@ -103,11 +103,6 @@ RUN /usr/local/bin/composer install --optimize-autoloader && \
 # Set working directory
 WORKDIR /
 
-# Grant permissions
-RUN chown -R www-data:www-data /var/www/laravel-app && \
-    chmod -R 775 /var/www/laravel-app/storage && \
-    chmod -R 775 /var/www/laravel-app/bootstrap/cache
-
 # Enable laravel repo updates
 RUN git config --global --add safe.directory /var/www/laravel-app
 
@@ -119,3 +114,8 @@ RUN chmod +x laravel-update.sh
 # Start supervisord
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
+# Grant permissions
+RUN chown -R www-data:www-data /var/www/laravel-app && \
+    chown -R www-data:www-data /var/www/laravel-app/storage/logs && \
+    chmod -R 775 /var/www/laravel-app/storage && \
+    chmod -R 775 /var/www/laravel-app/bootstrap/cache
